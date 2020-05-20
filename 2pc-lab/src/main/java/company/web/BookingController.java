@@ -18,14 +18,9 @@ public class BookingController {
         return tripBookingService.find(id);
     }
 
-    @GetMapping("/kek")
+    @PostMapping
     public void twoPC(@RequestBody TripBooking booking){
         transactionManager.twoPhaseCommitTransaction(booking);
-    }
-
-    @PostMapping
-    public TripBooking book(@RequestBody TripBooking tripBooking) {
-        return tripBookingService.book(tripBooking);
     }
 
 }
